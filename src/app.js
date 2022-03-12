@@ -127,6 +127,13 @@ App = {
     window.location.reload()
   },
 
+  createTask: async () => {
+    App.setLoading(true);
+    const content = $('#newTask').val();
+    await App.todoList.createTask(content, { from: App.account[0] });
+    window.location.reload();
+  },
+
   setLoading: (boolean) => {
     App.loading = boolean
     const loader = $('#loader')
